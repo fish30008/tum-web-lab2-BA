@@ -199,6 +199,36 @@ nav {
   background-color: var(--secondary);
 }
 
+.mobile-only-spotlight {
+  display: none;
+  padding: 26px 0;
+  background-color: var(--white);
+}
+
+.mobile-only-spotlight .container {
+  border: 1px solid rgba(44, 62, 80, 0.15);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.mobile-only-spotlight h2 {
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.mobile-only-spotlight p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.mobile-only-spotlight img {
+  width: 100%;
+  max-width: 260px;
+  margin-top: 0.9rem;
+  border-radius: 8px;
+}
+
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -278,10 +308,76 @@ footer {
   z-index: 1100;
 }
 
+.mascot {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  z-index: 1150;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: mascot-enter 0.8s ease 2s forwards;
+}
+
+.mascot img {
+  width: 240px;
+  height: auto;
+  animation: mascot-bounce 2.4s ease-in-out 2.8s infinite;
+}
+
+.mascot-message {
+  position: absolute;
+  right: 150px;
+  bottom: 10px;
+  min-width: 180px;
+  max-width: 240px;
+  background-color: var(--white);
+  border: 1px solid rgba(44, 62, 80, 0.18);
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  box-shadow: 0 6px 18px var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mascot:hover .mascot-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .product-image img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+@keyframes mascot-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mascot-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-4deg);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -360,8 +456,29 @@ footer {
     padding: 50px 0 115px;
   }
 
+  .mobile-only-spotlight {
+    display: block;
+  }
+
   .mobile-sticky-cta {
     display: inline-block;
+  }
+
+  .mascot {
+    right: 12px;
+    bottom: 78px;
+  }
+
+  .mascot img {
+    width: 72px;
+  }
+
+  .mascot-message {
+    right: 78px;
+    bottom: 8px;
+    min-width: 150px;
+    max-width: 190px;
+    font-size: 0.78rem;
   }
 }
 
